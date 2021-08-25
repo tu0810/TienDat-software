@@ -266,12 +266,318 @@ for(let i=0;i<10;i++){
     console.log(key,myDog[key]);
   }
 
+  // array method
+// -a.concat(b)
+// -a.push(b)
+// - a.pop(b)
+// - a.shift(b)
+// - a.unshift(b)
+// - a.slice
+// - a.splice 0 1
+let a = [, 3, 2];
+let b = [10, 20];
+let c= 5;
+
+//concat là nối mảng
+let x = a.concat(b);
+console.log(x);
+
+//push trả về độ dài mới của a và thay đổi a
+a.push(c); // length
+a;
+
+//pop đẩy ra phần tử cuối và trả về phần tử bị đẩy ra
+// a.pop();
+// a;
+
+//shift đẩy ra phần tử đầu tiên của mảng và trả về phần tử bị đẩy ra
+// a.shift();
+// a;
+
+//unshift đẩy vào phần tử đầu tiên của mảng và trả về độ dài mới của mảng
+// a.unshift(5);//length
+// a;
+
+// dùng function như tham số
+// let coffMachine={
+//   makeCoffee:function(onFinish){
+//     console.log('Making Coffee...')
+//     onFinish();
+//   }
+// };
+
+// let beep=function(){
+//   console.log('Tít tít');
+// };
+
+// function bep(){
+//   console.log('Tịt tịt');
+// };
+
+// coffMachine.makeCoffee(beep);
+// coffMachine.makeCoffee(bep);
+
+// coffMachine.makeCoffee(function(){
+//   console.log('Bíp Bíp');
+// });
+
+
+////array mothods
+////concat,push, pop,shirt,unshirt
+////////map method
+let numbers=[1, 2, 3, 4];
+let squareNumbers= numbers.map(function(x) {
+  return x*x;
+});
+
+let rectangles=[
+  {width:10,height:5},
+  {width:10,height:20},
+  {width:4,height:16}
+]
+console.log(rectangles);
+// console.log(rectangles().height);
+
+let dienTichHCN=rectangles.map(function(x){
+
+return x.width*x.height;
+});
+dienTichHCN;
+
+////////// array.filter
+
+let numbers=[1, 2, 3, 4, -1];
+let eveNumber = numbers.filter(function(item){
+  return item % 2 === 0;
+});
+console.log(eveNumber);
+
+let kChiaHet = numbers.filter(function(item){
+  return item %2 != 0;
+});
+console.log(kChiaHet);
+
+////// array.find
+let numbers=[1, 2, 3, 4, -1];
+let eveNumber = numbers.find(function(number){
+  return number % 2 === 0;
+});
+console.log(eveNumber);
+
+/////// array.reduce
+let numbers=[1, 2, 3, 4, -1];
+numbers.reduce(function(a,b){
+  console.log(a,b);
+  return a+b;
+})
+console.log('============');
+console.log('============');
+console.log('============');
+
+let orders = [
+  { name: 'A', quantity: 2, unitPrice: 100},
+   { name: 'B', quantity: 1, unitPrice: 400},
+    { name: 'C', quantity: 5, unitPrice: 500},
+];
+
+let tongDonHang = orders.reduce(function(a,b){
+  // console.log(a,b);
+
+  return a +b.quantity*b.unitPrice;;
+},0);
+console.log(tongDonHang);
+console.log('============');
+
+let products = [
+  { name: 'A',unitPrice: 100, quantity: 10, category: 'Electronic goods'},
+   { name: 'B',unitPrice: 10, quantity: 15, category: 'Electronic '},
+    { name: 'C',unitPrice: 50, quantity: 20, category: 'Electronic goods'}
+]
+////1. filter các sản phẩm nằm trong 1 category nào đó
+/////2. tính số tiền hàng còn trong kho
+/////3. chọn ra các sp có số tiền lớn
+let timSP=products.filter(function(x){
+  return x.category === 'Electronic goods';
+});
+console.log(timSP);
+
+let chonSP=products.filter(function(x){
+return x.unitPrice*x.quantity >= 1000;
+});
+console.log(chonSP);
+console.log('============');
+
+let sum1 = products.reduce(function(a,b){
+  // console.log(a,b);
+
+return a + b.unitPrice*b.quantity;
+},0);
+console.log(sum1);
+console.log('============');
+
+let numbers=[1, 2, 3, 4, -1];
+let sum = numbers.reduce(function(a,b){
+  console.log(a,b);
+  return a+b;
+},0);
+console.log(sum);
+let items = ['tom','bill','kim'];
+let ten = items.reduce(function(a,b){
+console.log('<'+ b +'>');
+
+  return a + b;
+});
+console.log('<'+ ten +'>');
+
+////array short
+let numbers = [2, 9, 3, 4 ,1];
+let ascendingNumbers = numbers.sort(function(a,b){
+  return a-b;
+});
+console.log(ascendingNumbers);
+let descendingNumbers = numbers.sort(function(a,b){
+  return b-a;
+});
+console.log(descendingNumbers);
+
+let employees = [
+  {name: 'Ti', age:18},
+  {name: 'Teo', age:20},
+  {name: 'Tu', age:19}
+];
+let sxTuoi = employees.sort(function(a,b){
+  return a.age -b.age;
+});
+console.log(sxTuoi);
+
+let orders = [
+  { name: 'A', quantity: 2, unitPrice: 100},
+   { name: 'B', quantity: 1, unitPrice: 400},
+    { name: 'C', quantity: 5, unitPrice: 500},
+];
+let sxTheoGia = orders.sort(function(a,b){
+  return b.unitPrice - a.unitPrice; 
+});
+console.log(sxTheoGia);
+console.log('================');
+
+let sxTonKho = orders.sort(function(a,b){
+  return a.quantity - b.quantity; 
+});
+console.log(sxTonKho);
+
+
+/// math object
+function discArea(r){
+  return r*r* Math.PI;
+}
+
+let s = discArea(5);
+console.log(Math.PI);
+
+//làm tròn lên
+console.log(Math.ceil(9.2));
+
+////làm tròn xuống
+console.log(Math.floor(9.2));
+
+console.log(Math.max(10, 20, -1));///20
+
+console.log(Math.min(10, 20, -1));///-1
+
+///random từ 0->1
+console.log('Random:', Math.random());
+function tossACoin(){
+  let random = Math.random();
+  console.log(random);
+  return random > 0.5;
+}
+
+console.log('Sap:', tossACoin());
 
 
 
+/// new keyword
+// let today = new Date();
+// console.log(today);
+//Create a new object
+let mouse = {
+  weight: 0.2,
+  getWeight: function(){
+    return this.weight;
+  }
+};
+// console.log(mouse.getWeight());
+
+//constructor  function
+function Mouse(color,weight){
+  this.type = 'mouse';
+  this.color = color;
+  this.weight = weight;
+}
+
+let mouse1 = new Mouse('white','0.2');
+let mouse2 = new Mouse('black','0.5');
+console.log(mouse1);
+console.log(mouse2);
+
+
+let tom = {
+  name: "tom",
+  stomach:1,
+  eat: function(mouse){
+    this.stomach.push(mouse);
+    return this;
+  }
+};
+
+function Chuot(name) {
+  this.name = name;
+}
+
+let m1 = new Chuot('1');
+let m2 = new Chuot('2');
+let m3 = new Chuot('3');
+
+tom.eat(m1).eat(m2).eat(m3);
+console.log('Tom');
+console.log(tom);
 
 
 
+/// new keyword
+// let today = new Date();
+// console.log(today);
+//Create a new object
+let mouse = {
+  weight: 0.2,
+  getWeight: function(){
+    return this.weight;
+  }
+};
+// console.log(mouse.getWeight());
 
+//constructor  function
+function Mouse(color,weight){
+  this.type = 'mouse';
+  this.color = color;
+  this.weight = weight;
+  // this.sleep = function() {
+  //   console.log('Sleeping....');
+  // };
+}
+
+
+Mouse.prototype.sleep= function(){
+  console.log('Sleeping......');
+};
+
+let jerry = new Mouse('white',20);
+
+let mickey = new Mouse('red',10);
+
+console.log(jerry.sleep === mickey.sleep);
+
+// best practice
 
 
